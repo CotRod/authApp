@@ -9,8 +9,11 @@ public class DAO {
     private static Map<String, User> users = new HashMap<>();
     private DAO(){}
 
+    public static boolean hasUser(String login){
+        return users.containsKey(login);
+    }
+
     public static User getUser(String login){
-        setUser("admin", "admin"); //дефолтовый пользователь
         return users.get(login);
     }
 

@@ -6,7 +6,7 @@
 <!--        LOGIN SERVLET       -->
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>by.itacademy.servlets.LoginServlet</servlet-class>
+        <servlet-class>by.itacademy.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -15,7 +15,7 @@
 <!--        REGISTRATION SERVLET        -->
     <servlet>
         <servlet-name>Signup</servlet-name>
-        <servlet-class>by.itacademy.servlets.SignupServlet</servlet-class>
+        <servlet-class>by.itacademy.servlet.SignupServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>

@@ -1,4 +1,4 @@
-package by.itacademy.objects;
+package by.itacademy.model;
 
 public class User {
     private String login;

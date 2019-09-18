@@ -1,12 +1,11 @@
-package by.itacademy.servlets;
+package by.itacademy.servlet;
 
-import by.itacademy.utils.DAO;
+import by.itacademy.dao.DAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -21,7 +20,7 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        if(DAO.hasUser(login) && password.equals(DAO.getUser(login).getPassword())){
+        if(DAO.getInstance().hasUser(login) && password.equals(DAO.getInstance().getUser(login).getPassword())){
             req.getSession().setAttribute("login", login);
             resp.sendRedirect(getServletContext().getContextPath()+"/userHome.jsp");
         }else {

@@ -8,20 +8,21 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
 
-public class AuthFilter implements Filter {
+public class AuthorizedFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-        Cookie [] cookies = req.getCookies();
-        Optional<Cookie>cookie = Arrays.stream(cookies)
+        Cookie[] cookies = req.getCookies();
+        Optional<Cookie> cookie = Arrays.stream(cookies)
                 .filter(c -> c.getName().equals("myAppUserCookie"))
                 .findAny();
         if(cookie.isPresent()){
-            filterChain.doFilter(servletRequest,servletResponse);
+            resp.sendRedirect(req.getContextPath()+"/userHome.jsp");
         } else {
-            resp.sendRedirect(req.getContextPath()+"/login");
+            filterChain.doFilter(servletRequest,servletResponse);
+
         }
     }
 }

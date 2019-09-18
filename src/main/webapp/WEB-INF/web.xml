@@ -39,4 +39,16 @@
         <filter-name>AuthorizationFilter</filter-name>
         <url-pattern>/userHome.jsp</url-pattern>
     </filter-mapping>
+<!--        AANOTHER FILTER         -->
+    <filter>
+        <filter-name>AuthorizedFilter</filter-name>
+        <filter-class>by.itacademy.filter.AuthorizedFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthorizedFilter</filter-name>
+        <url-pattern>/login.jsp</url-pattern>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/signup.jsp</url-pattern>
+        <url-pattern>/signup</url-pattern>
+    </filter-mapping>
 </web-app>

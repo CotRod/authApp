@@ -10,7 +10,9 @@ import java.io.IOException;
 public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie [] cookies = req.getCookies();
-
+        Cookie cookie = new Cookie("myAppUserCookie","");
+        cookie.setMaxAge(0);
+        resp.addCookie(cookie);
+        resp.sendRedirect(getServletContext().getContextPath()+"/login");
     }
 }

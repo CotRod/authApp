@@ -27,7 +27,7 @@ public class SignupServlet extends HttpServlet {
         } else {
             DAO.getInstance().save(login,password);
             req.getSession().setAttribute("login",login);
-            resp.addCookie(new Cookie(login, DAO.getInstance().getUser(login).toString()));        //в куку кладём логин и пароль, пока что так,потом изменить
+            resp.addCookie(new Cookie("myAppUserCookie", DAO.getInstance().getUser(login).toString()));        //в куку кладём логин и пароль, пока что так,потом изменить
             resp.sendRedirect(getServletContext().getContextPath()+"/userHome.jsp");
         }
     }

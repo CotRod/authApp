@@ -21,4 +21,22 @@
         <servlet-name>Signup</servlet-name>
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
+<!--        LOGOUT SERVLET      -->
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>by.itacademy.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+<!--        AUTHORIZATION FILTER      -->
+    <filter>
+        <filter-name>AuthorizationFilter</filter-name>
+        <filter-class>by.itacademy.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthorizationFilter</filter-name>
+        <url-pattern>/userHome.jsp</url-pattern>
+    </filter-mapping>
 </web-app>

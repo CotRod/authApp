@@ -7,6 +7,7 @@
 </head>
 <body>
 <h2>Hello user, ${login}!</h2>
+<p><a href="myapp/logout">Log out</a></p>
 
 </body>
 </html>

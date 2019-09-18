@@ -3,6 +3,7 @@ package by.itacademy.servlet;
 import by.itacademy.dao.DAO;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 
         if(DAO.getInstance().hasUser(login) && password.equals(DAO.getInstance().getUser(login).getPassword())){
             req.getSession().setAttribute("login", login);
+            resp.addCookie(new Cookie(login,DAO.getInstance().getUser(login).toString()));         //в куку кладём логин и пароль, пока что так,потом изменить
             resp.sendRedirect(getServletContext().getContextPath()+"/userHome.jsp");
         }else {
             req.setAttribute("errorNum",1);
